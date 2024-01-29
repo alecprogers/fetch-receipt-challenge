@@ -18,10 +18,9 @@ Please begin by cloning this repo and navigating to it in your CLI.
 
 _Requirements: Go_
 
-To run this project locally using just Go, run the following commands:
+To run this project locally using just Go, run the following command:
 
 ```bash
-go get -d
 go run src/main.go
 ```
 
@@ -29,11 +28,12 @@ This will serve the application locally on port 8080.
 
 ### Running Locally with Serverless
 
-_Requirements: Go, NPM, Serverless, Docker_
+_Requirements: Go, [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm), [Serverless](https://www.serverless.com/framework/docs/getting-started), Docker_
 
 Serverless offers a couple of methods for running the project locally. To invoke the lambda locally, run:
 
 ```bash
+npm install
 make build
 serverless invoke local --function process-receipt --path test-receipt.json
 ```
@@ -43,6 +43,7 @@ Substitute the payload of your choice into `test-receipt.json`.
 To serve the lambda as a local API, run:
 
 ```bash
+npm install
 make build
 serverless offline --useDocker
 ```
