@@ -1,0 +1,24 @@
+service: fetch-receipt-challenge
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: go1.x
+  region: us-east-2
+
+package:
+  patterns:
+    # - '!./**'
+    - ./bin/**
+
+functions:
+  process-receipt:
+    timeout: 5
+    handler: bin/process-receipt-handler
+    events:
+      - httpApi:
+          path: /receipts/process
+          method: post
